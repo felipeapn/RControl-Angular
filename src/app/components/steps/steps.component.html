@@ -1,0 +1,44 @@
+
+<div class="p-grid" [ngSwitch]="dialogPageIndex">
+    <div class="p-col-12 p-nogutter p-col-align-center">
+        <p-steps 
+        [model]="dialogPages"
+        [(activeIndex)]="dialogPageIndex"
+        [readonly]="false">
+        </p-steps>
+    </div>
+    <div class="p-col-12">
+        <p-panel>
+            <p-header>
+                Product dialogPageIndex {{ dialogPageIndex }}
+            </p-header>
+            <div *ngSwitchCase="PageNames.ProductPage" class="p-col-12">
+                <app-product-selected [product]="product"></app-product-selected>
+            </div>
+            <div *ngSwitchCase="PageNames.IdPage" class="p-col-12">
+                Project page goes here {{ activeIndex }}
+            </div>
+            <div *ngSwitchCase="PageNames.PaymentPage" class="p-col-12">
+                PlacePage page goes here
+            </div>
+            <div *ngSwitchCase="PageNames.ConfirmationPage" class="p-col-12">
+                PeoplePage page goes here
+            </div>
+            <p-footer>
+                <button pButton type="button" 
+                    label="Back" 
+                    (click)="backStep()"
+                    class="ui-button-danger"
+                    [disabled]="dialogPageIndex >= 1 ? false : true"></button>
+
+                <button pButton type="button" 
+                    label="Next" 
+                    (click)="nextStep()"
+                    [disabled]="dialogPageIndex < 3 ? false : true"></button>
+            </p-footer>
+        </p-panel>
+    </div>
+    
+</div>
+
+

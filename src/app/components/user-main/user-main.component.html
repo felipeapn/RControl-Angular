@@ -1,0 +1,18 @@
+<h1>Client Screen</h1>
+<app-user-form></app-user-form>
+<app-process-select></app-process-select>
+<p-panel header="Upload Files" [toggleable]="true" [collapsed]="true">
+    <app-upload></app-upload>
+</p-panel>
+
+<h2>Your Processes</h2>
+
+<p-accordion>
+    <p-accordionTab header="Process 123456" >
+       Content and status of process 123456
+       <app-upload></app-upload>
+    </p-accordionTab>
+    <p-accordionTab header="Header 2" [disabled]="true">
+        Content 2
+    </p-accordionTab>
+</p-accordion>

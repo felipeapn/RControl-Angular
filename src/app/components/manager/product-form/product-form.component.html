@@ -1,0 +1,83 @@
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>
+
+<p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.summary}}</h3>
+            <p>{{message.detail}}</p>
+        </div>
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onConfirm()" label="Yes" class="ui-button-success"></button>
+            </div>
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onReject()" label="No" class="ui-button-secondary"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+
+<form [formGroup]="productForm" class="p-grid">
+    <p-panel header="Edit Product" class="p-col-12">
+        <div class="p-grid ui-fluid">
+            <div class="p-col-12">
+                <h3 class="first">Pick One Type</h3>
+                <p-selectButton [options]="produtctTypes" 
+                    formControlName="type">
+                </p-selectButton>
+                <p-message *ngIf="hasError('type') && submitted" severity="error" 
+                    text="Field Type is required!"></p-message>
+            </div>
+            <div class="p-col-12 p-sm-12 p-md-6">
+                <span class="ui-float-label">
+                    <input id="name" type="text" size="30" pInputText 
+                     formControlName="name"> 
+                    <label for="name">Product Name</label>
+                </span>
+                <p-message *ngIf="hasError('name') && submitted" severity="error" 
+                    text="Field Name is required!"></p-message>
+                <p-message *ngIf="hasError('name') && hasError('name')['minlength'] && submitted" severity="error" 
+                    text="Field Name requires at least {{ hasError('name')['minlength'].requiredLength }} characters!"></p-message>
+                <p-message *ngIf="hasError('name') && hasError('name')['maxlength'] && submitted" severity="error" 
+                    text="Field Name requires up to {{ hasError('name')['maxlength'].requiredLength }} characters!"></p-message>
+            </div>
+            <div class="p-col-6 p-sm-6 p-md-3">
+                <span class="ui-float-label">
+                    <input id="price" type="number" min="0.00" max="10000.00" step="0.10" pInputText 
+                        formControlName="price"> 
+                    <label for="price">Price</label>
+                </span>
+                <p-message *ngIf="hasError('price') && submitted" severity="error" 
+                    text="Field Price is required!"></p-message>
+            </div>
+            <div class="p-col-6 p-sm-6 p-md-3">
+                <span class="ui-float-label">
+                    <input id="iva" type="number" min="0.00" max="10000.00" step="0.10" pInputText 
+                        formControlName="iva"> 
+                    <label for="iva">IVA</label>
+                </span>
+                <p-message *ngIf="hasError('iva') && submitted" severity="error" 
+                    text="Field IVA is required!"></p-message>
+            </div>
+            <div class="p-col-12 p-md-6">
+                <span class="ui-float-label">
+                    <textarea id="description" formControlName="description" 
+                        [rows]="5" pInputTextarea
+                        autoResize="autoResize"></textarea>
+                    <label for="description">Description</label>
+                </span>
+                <p-message *ngIf="hasError('description') && submitted" severity="error" 
+                    text="Field Description is required!"></p-message>
+                <p-message *ngIf="hasError('description') && hasError('description')['maxlength'] && submitted" severity="error" 
+                    text="Field Description requires up to {{ hasError('description')['maxlength'].requiredLength }} characters!"></p-message>
+            </div>
+            <div class="p-col-12 p-md-6 p-col-align-center">
+                <button pButton type="submit" label="Save" (click)="onSubmit()"
+                class="ui-button-info space-buttons"></button> 
+                <button pButton type="button" label="Cancel" (click)="onCancel()"
+                class="ui-button-danger space-buttons"></button>
+            </div>
+        </div>
+    </p-panel>
+</form>

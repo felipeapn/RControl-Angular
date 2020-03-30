@@ -1,0 +1,69 @@
+// confirmation on delete
+<p-toast position="center" key="c" (onClose)="onReject()" [modal]="true" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div style="text-align: center">
+            <i class="pi pi-exclamation-triangle" style="font-size: 3em"></i>
+            <h3>{{message.summary}}</h3>
+            <p>{{message.detail}}</p>
+        </div>
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onConfirm()" label="Yes" class="ui-button-success"></button>
+            </div>
+            <div class="ui-g-6">
+                <button type="button" pButton (click)="onReject()" label="No" class="ui-button-secondary"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+
+<div class="p-gri">
+    <div class="p-col-12">
+        
+    </div>
+    <div class="p-col-12">
+        <p-table [value]="products" [paginator]="true" [rows]="5" [responsive]="true">
+            <ng-template pTemplate="caption">
+            <div class="p-grid p-justify-between">
+                <div class="p-col-6">
+                    <h1 style="text-align: left;">Product Master Data</h1>
+                </div>
+                <div class="p-col-6" class="p-col-align-center">
+                    <button pButton type="button" label="New Product" icon="pi pi-check" 
+                    routerLink="/masterdata/new-product"></button>
+                </div>
+            </div>
+                
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th class="col-id-header">Id</th>
+                    <th class="col-type-header">Type</th>
+                    <th class="col-name-header">Name</th>
+                    <th class="col-description-heade">Description</th>
+                    <th class="col-name-header">Price</th>
+                    <th class="col-name-header">IVA</th>
+                    <th class="col-acoes">Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td class="col-content-center">{{ product.id }}</td>
+                    <td class="col-content-center">{{ product.type }}</td>
+                    <td class="col-content-center">{{ product.name }}</td>
+                    <td class="col-content-justify">{{ product.description }}</td>
+                    <td class="col-content-center">${{ product.price }}</td>
+                    <td class="col-content-center">${{ product.iva }}</td>
+                    <td class="col-content-center">
+                        <button pButton class="espaco-icones" icon="pi pi-pencil" 
+                            pTooltip="Editar" tooltipPosition="top"
+                            (click)="onEdit(product.id)"></button>
+                        <button pButton type="button" class="espaco-icones ui-button-danger" 
+                            icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"
+                            (click)="onCancel(product.id)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

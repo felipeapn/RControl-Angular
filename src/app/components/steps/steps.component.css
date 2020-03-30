@@ -1,0 +1,13 @@
+
+.ui-state-complete .ui-steps-number{
+    background-color: #054127 !important;
+    color: #f4f4f4 !important;
+}
+
+.ui-steps .ui-steps-item {
+    width: 25%;
+}
+
+.ui-button {
+    margin-right: .5em !important;
+}

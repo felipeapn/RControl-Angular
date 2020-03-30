@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #404c51;
+}
+
+label {
+    font-weight: bold;
+}
+
+.col-id-header {
+    width: 5%;
+  }
+
+.col-type-header {
+      width: 15%;
+ }
+
+.col-name-header {
+    width: 10%;
+}
+
+.col-description-header {
+    width: 35%;
+}
+
+.col-acoes {
+    width: 15%;
+    text-align: center;
+  }
+
+.col-content-right {
+    text-align: right;
+}
+.col-content-center {
+    text-align: center;
+  }
+.col-content-justify {
+    text-align: justify;
+}
+  
+.col-data-header {
+    width: 89px;
+  }
+  
+  .col-data-content {
+    text-align: center;
+  }
+  
+
+  
+  .espaco-icones {
+    margin: 0 .25em!important;
+  }

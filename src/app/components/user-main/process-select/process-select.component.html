@@ -1,0 +1,32 @@
+<p-panel header="Product" [toggleable]="true" [collapsed]="true">
+    <div class="p-grid">
+        <div class="p-col-12">
+            <p>Choose one: {{selectedFile ? selectedFile.data.description : 'none'}}</p> 
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-6">
+            <p-tree [value]="filesTree" selectionMode="single" [(selection)]="selectedFile"
+                (onNodeSelect)="nodeSelect($event)" (onNodeUnselect)="nodeUnselect($event)">
+            </p-tree>
+        </div>
+
+        <div *ngIf="selectedFile" class="p-col-12 p-md-6 p-lg-6" style="margin-top:8px" 
+        style="font: bold">
+            <p>Procedure: {{ selectedFile.label }} </p>
+            <p>Detail: {{ selectedFile.data.description }} </p>
+            <p>Price: {{ selectedFile.data.price }}.00 </p>
+            <p>Iva: {{ selectedFile.data.iva }}.00 </p>
+            <h2>Total: {{ selectedFile.data.iva +  selectedFile.data.price}}.00</h2>
+        </div>
+    </div>
+    <p-footer>
+        <div class="p-grid">
+            <div class="p-col-12 p-md-3 p-lg-3">
+                <button pButton type="button" label="Confirme" (click)="handleClick()"></button>
+            </div>
+            <div *ngIf="showPayment"class="p-col-12 p-md-6 p-lg-6">
+                <p>The procedure 123456 has been created!!</p>
+                <p>Please check the payment link: <a href="http://paypal.com">www.paypal.com</a></p>
+            </div>
+        </div>
+    </p-footer>
+</p-panel>
