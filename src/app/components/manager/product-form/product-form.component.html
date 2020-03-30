@@ -19,7 +19,23 @@
 </p-toast>
 
 <form [formGroup]="productForm" class="p-grid">
-    <p-panel header="Edit Product" class="p-col-12">
+    <p-panel class="p-col-12">
+        <p-header>
+            <div class="p-grid ui-fluid p-align-center">
+                <div *ngIf="!productForm.value.id" class="p-col-8 p-sm-8 p-md-10">
+                    <h3>Add New Product</h3>
+                </div>
+                <div *ngIf="productForm.value.id" class="p-col-8 p-sm-8 p-md-10">
+                    <h3>Edit Product {{ productForm.value.id }} !!!</h3>
+                </div>
+                <div class="p-col-4 p-sm-4 p-md-2">
+                    <a href="#" [routerLink]="['/masterdata']" 
+                    routerLinkActive="router-link-active">
+                        <button pButton type="button" icon="pi pi-arrow-left" label="Back"></button>
+                    </a>
+                </div>
+            </div>
+        </p-header>
         <div class="p-grid ui-fluid">
             <div class="p-col-12">
                 <h3 class="first">Pick One Type</h3>
