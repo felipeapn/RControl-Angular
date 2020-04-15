@@ -18,7 +18,7 @@
     </ng-template>
 </p-toast>
 
-<form [formGroup]="productForm" class="p-grid">
+<form [formGroup]="productForm" class="p-grid ui-fluid">
     <p-panel class="p-col-12">
         <p-header>
             <div class="p-grid ui-fluid p-align-center">
@@ -42,8 +42,11 @@
                 <p-selectButton [options]="produtctTypes" 
                     formControlName="type">
                 </p-selectButton>
-                <p-message *ngIf="hasError('type') && submitted" severity="error" 
-                    text="Field Type is required!"></p-message>
+                <app-field-message 
+                    *ngIf="hasError('type') && submitted" 
+                    severity="error" 
+                    text="Field Type is required!">
+                </app-field-message>
             </div>
             <div class="p-col-12 p-sm-12 p-md-6">
                 <span class="ui-float-label">
@@ -51,12 +54,21 @@
                      formControlName="name"> 
                     <label for="name">Product Name</label>
                 </span>
-                <p-message *ngIf="hasError('name') && submitted" severity="error" 
-                    text="Field Name is required!"></p-message>
-                <p-message *ngIf="hasError('name') && hasError('name')['minlength'] && submitted" severity="error" 
-                    text="Field Name requires at least {{ hasError('name')['minlength'].requiredLength }} characters!"></p-message>
-                <p-message *ngIf="hasError('name') && hasError('name')['maxlength'] && submitted" severity="error" 
-                    text="Field Name requires up to {{ hasError('name')['maxlength'].requiredLength }} characters!"></p-message>
+                <app-field-message 
+                    *ngIf="hasError('name') && submitted" 
+                    severity="error" 
+                    text="Field Name is required!">
+                </app-field-message>
+                <app-field-message
+                    *ngIf="hasError('name') && hasError('name')['minlength'] && submitted" 
+                    severity="error" 
+                    text="Field Name requires at least {{ hasError('name')['minlength'].requiredLength }} characters!">
+                </app-field-message>
+                <app-field-message 
+                    *ngIf="hasError('name') && hasError('name')['maxlength'] && submitted" 
+                    severity="error" 
+                    text="Field Name requires up to {{ hasError('name')['maxlength'].requiredLength }} characters!">
+                </app-field-message>
             </div>
             <div class="p-col-6 p-sm-6 p-md-3">
                 <span class="ui-float-label">
@@ -64,8 +76,11 @@
                         formControlName="price"> 
                     <label for="price">Price</label>
                 </span>
-                <p-message *ngIf="hasError('price') && submitted" severity="error" 
-                    text="Field Price is required!"></p-message>
+                <app-field-message 
+                    *ngIf="hasError('price') && submitted" 
+                    severity="error" 
+                    text="Field Price is required!">
+                </app-field-message>
             </div>
             <div class="p-col-6 p-sm-6 p-md-3">
                 <span class="ui-float-label">
@@ -73,8 +88,11 @@
                         formControlName="iva"> 
                     <label for="iva">IVA</label>
                 </span>
-                <p-message *ngIf="hasError('iva') && submitted" severity="error" 
-                    text="Field IVA is required!"></p-message>
+                <app-field-message 
+                    *ngIf="hasError('iva') && submitted" 
+                    severity="error" 
+                    text="Field IVA is required!">
+                </app-field-message>
             </div>
             <div class="p-col-12 p-md-6">
                 <span class="ui-float-label">
@@ -83,10 +101,16 @@
                         autoResize="autoResize"></textarea>
                     <label for="description">Description</label>
                 </span>
-                <p-message *ngIf="hasError('description') && submitted" severity="error" 
-                    text="Field Description is required!"></p-message>
-                <p-message *ngIf="hasError('description') && hasError('description')['maxlength'] && submitted" severity="error" 
-                    text="Field Description requires up to {{ hasError('description')['maxlength'].requiredLength }} characters!"></p-message>
+                <app-field-message 
+                    *ngIf="hasError('description') && submitted" 
+                    severity="error" 
+                    text="Field Description is required!">
+                </app-field-message>
+                <app-field-message 
+                    *ngIf="hasError('description') && hasError('description')['maxlength'] && submitted" 
+                    severity="error" 
+                    text="Field Description requires up to {{ hasError('description')['maxlength'].requiredLength }} characters!">
+                </app-field-message>
             </div>
             <div class="p-col-12 p-md-6 p-col-align-center">
                 <button pButton type="submit" label="Save" (click)="onSubmit()"

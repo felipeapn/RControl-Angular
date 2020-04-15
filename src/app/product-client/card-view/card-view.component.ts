@@ -1,5 +1,5 @@
-import { Product } from './../../domain/product';
-import { ProductService } from './../../services/product.service';
+import { Product } from '../../domain/product';
+import { ProductService } from '../../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 
@@ -16,14 +16,10 @@ export class CardViewComponent implements OnInit {
   private fail: boolean = false;
 
   constructor(private productService: ProductService) { 
-    this.procs = productService.getProducts();
   }
 
   ngOnInit() {
     this.productService.list()
-      .pipe(
-        take(1)
-      )
       .subscribe(productData => this.products = productData, error => this.fail = true);
   }
 

@@ -1,4 +1,5 @@
-import { ProductService } from './../../services/product.service';
+import { Product } from '../../domain/product';
+import { ProductService } from '../../services/product.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
@@ -16,9 +17,9 @@ export enum PageNames {
 
 @Component({
   selector: 'app-steps',
-  providers: [MessageService],
   templateUrl: './steps.component.html',
   styleUrls: ['./steps.component.css'],
+  providers: [MessageService],
 
   encapsulation: ViewEncapsulation.None
 })
@@ -37,26 +38,14 @@ export class StepsComponent implements OnInit {
   PageNames = PageNames;
   dialogPageIndex = PageNames.ProductPage;
 
-  productId: number;
-  product: any;
+  product: Product;
 
   constructor(private messageService: MessageService,
               private route: ActivatedRoute,
               private productService: ProductService) { }
 
   ngOnInit() {
-    console.log(this.route.params['id']);
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.productId = +params['id'];
-          console.log(this.productId);
-          console.log(params['id']);
-          //this.recipe = this.recipeService.getRecipe(this.id);
-        }
-      );
-
-      this.product = this.productService.getById(this.productId - 1);
+    this.product = this.route.snapshot.data['product'];
   }
   nextStep() {
     this.dialogPageIndex = this.dialogPageIndex + 1;

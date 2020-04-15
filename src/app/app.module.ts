@@ -1,3 +1,4 @@
+import { ProductClientModule } from './product-client/product-client.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -6,22 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MenubarModule } from 'primeng/menubar';
-import { InputTextModule } from 'primeng/inputtext';
-import { ButtonModule } from 'primeng/button';
-import { PanelModule } from 'primeng/panel';
 import { TreeModule } from 'primeng/tree';
 import { FileUploadModule } from 'primeng/fileupload';
-import { ToastModule } from 'primeng/toast';
 import { AccordionModule } from 'primeng/accordion';
-import { TableModule } from 'primeng/table';
-import { InputTextareaModule } from 'primeng/inputtextarea';
-import { CardModule } from 'primeng/card';
-import { StepsModule } from 'primeng/steps';
-import { ScrollPanelModule } from 'primeng/scrollpanel';
-import { SelectButtonModule } from 'primeng/selectbutton';
 import { InputMaskModule } from 'primeng/inputmask';
-import { MessagesModule } from 'primeng/messages';
-import { MessageModule } from 'primeng/message';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,28 +20,18 @@ import { UserMainComponent } from './components/user-main/user-main.component';
 import { ProcessSelectComponent } from './components/user-main/process-select/process-select.component';
 import { UploadComponent } from './components/upload/upload.component';
 import { WorkMainComponent } from './components/work-main/work-main.component';
-import { ManagerComponent } from './components/manager/manager.component';
-import { CardViewComponent } from './components/card-view/card-view.component';
-import { StepsComponent } from './components/steps/steps.component';
-import { ProductSelectedComponent } from './components/product-selected/product-selected.component';
-import { ProductMasterComponent } from './components/manager/product-master/product-master.component';
-import { ProductFormComponent } from './components/manager/product-form/product-form.component';
+import { ManagerModule } from './manager/manager.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    UserFormComponent,
-    UserMainComponent,
-    ProcessSelectComponent,
-    UploadComponent,
-    WorkMainComponent,
-    ManagerComponent,
-    CardViewComponent,
-    StepsComponent,
-    ProductSelectedComponent,
-    ProductMasterComponent,
-    ProductFormComponent
+    //UserFormComponent,
+    //UserMainComponent,
+    //ProcessSelectComponent,
+   // UploadComponent,
+   // WorkMainComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -63,22 +42,12 @@ import { ProductFormComponent } from './components/manager/product-form/product-
     AppRoutingModule,
     MenubarModule,
     CommonModule,
-    InputTextModule,
-    ButtonModule,
-    PanelModule,
     TreeModule,
     FileUploadModule,
-    ToastModule,
-    AccordionModule,
-    TableModule,
-    InputTextareaModule,
-    CardModule,
-    StepsModule,
-    ScrollPanelModule,
-    SelectButtonModule,
+    AccordionModule, 
     InputMaskModule,
-    MessagesModule,
-    MessageModule
+    ProductClientModule,
+    ManagerModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

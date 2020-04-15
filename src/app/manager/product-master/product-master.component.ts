@@ -1,8 +1,8 @@
-import { ProductService } from './../../../services/product.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Product } from 'src/app/domain/product';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-master',

@@ -1,11 +1,11 @@
-import { ProductService } from './../../../services/product.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SelectItem } from 'primeng/api/selectitem';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
-import { map, switchMap } from 'rxjs/operators';
-import { Product } from '../../../domain/product';
+import { ProductService } from 'src/app/services/product.service';
+import { Product } from 'src/app/domain/product';
+
 
 @Component({
   selector: 'app-product-form',

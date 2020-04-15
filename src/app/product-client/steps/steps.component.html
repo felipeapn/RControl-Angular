@@ -1,6 +1,6 @@
 
 <div class="p-grid" [ngSwitch]="dialogPageIndex">
-    <div class="p-col-12 p-nogutter p-col-align-center">
+    <div class="p-col-12 p-nogutter p-col-align-center ui-fluid">
         <p-steps 
         [model]="dialogPages"
         [(activeIndex)]="dialogPageIndex"
@@ -10,7 +10,7 @@
     <div class="p-col-12">
         <p-panel>
             <p-header>
-                Product dialogPageIndex {{ dialogPageIndex }}
+                <strong>{{ dialogPages[dialogPageIndex].label }}</strong>
             </p-header>
             <div *ngSwitchCase="PageNames.ProductPage" class="p-col-12">
                 <app-product-selected [product]="product"></app-product-selected>

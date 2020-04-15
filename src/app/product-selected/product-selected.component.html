@@ -1,0 +1,12 @@
+<div class="p-grid ui-fluid p-nogutter">
+    <div class="p-col-12 p-nogutter" style="margin-top:8px">
+        <h2>{{ product.type }}</h2>
+        <h3>{{ product.name }}</h3>
+    </div>
+    <div class="p-col-12">
+        <p><strong>Description:</strong>  {{ product.description }}</p>
+        <p><strong>Price:</strong>  {{ product.price }}.00</p>
+        <p><strong>Iva:</strong>  {{ product.iva }}.00</p>
+        <h3>Total: {{ product.iva + product.price }}.00</h3>
+    </div>
+</div>

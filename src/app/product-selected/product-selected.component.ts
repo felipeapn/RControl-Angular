@@ -1,3 +1,4 @@
+import { Product } from '../domain/product';
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
@@ -8,11 +9,12 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 })
 export class ProductSelectedComponent implements OnInit {
 
-  @Input() product: any;
+  @Input() product: Product;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
